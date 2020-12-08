@@ -1,42 +1,29 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
 
-export default function Neumorphic({ children, size, style }) {
+export default function Neumorphic({ children, size, style, width, height, background, borderRadius }) {
     return (
-        <View style={ styles.topShadow }>
-            <View style={ styles.bottomShadow }>
-                <View style={{
+        <span style={ styles.topShadow }>
+            <span style={ styles.bottomShadow }>
+                <span style={{
                     ...styles.inner,
-                    width: size || 40,
-                    height: size || 40,
-                    borderRadius: size / 2 || 20,
-                    ...style
+                    width: size || width || 40,
+                    height: size || height || 40,
+                    borderRadius: borderRadius || size / 2 || width / 2,
+                    background: background || '#DEE9F7'
                 }}>
-                    { children }
-                </View>
-            </View>
-        </View>
+                {{ children }}
+                </span>
+            </span>
+        </span>
     )
 }
 
-const styles = StyleSheet.create({
+const styles = {
     topShadow: {
-        shadowOffset: {
-            width: -6,
-            height: -6
-        },
-        shadowOpacity: 1,
-        shadowRadius: 6,
-        shadowColor: '#fbffff'
+        boxShadow: '-6px -6px 6px 1px #FBFFFF'
     },
     bottomShadow: {
-        shadowOffset: {
-            width: 6,
-            height: 6
-        },
-        shadowOpacity: 1,
-        shadowRadius: 6,
-        shadowColor: '#b7c4dd'
+        boxShadow: '6px 6px 6px 1px #FBFFFF'
     },
     inner: {
         backgroundColor: '#dee9f7',
@@ -44,4 +31,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         borderColor: '#e2ecfd',
     }
-})
+}
