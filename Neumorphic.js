@@ -9,7 +9,8 @@ export default function Neumorphic({ children, size, style, width, height, backg
                     width: size || width || 40,
                     height: size || height || 40,
                     borderRadius: borderRadius || size / 2 || width / 2,
-                    background: background || '#DEE9F7'
+                    background: background || '#DEE9F7',
+                    ...style
                 }}>
                 {{ children }}
                 </span>
