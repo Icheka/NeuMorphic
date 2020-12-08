@@ -1,15 +1,16 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
-export default function Neumorphic({ children, size, style }) {
+export default function Neumorphic({ children, size, style, borderRadius, background }) {
     return (
         <View style={ styles.topShadow }>
             <View style={ styles.bottomShadow }>
                 <View style={{
                     ...styles.inner,
-                    width: size || 40,
-                    height: size || 40,
-                    borderRadius: size / 2 || 20,
+                    width: size || width || 40,
+                    height: size || height || 40,
+                    borderRadius: borderRadius || size / 2 || 20,
+                    backgroundColor: background || '#DEE9F7',
                     ...style
                 }}>
                     { children }
